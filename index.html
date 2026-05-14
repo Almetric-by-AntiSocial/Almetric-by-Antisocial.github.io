@@ -74,7 +74,7 @@
         }
 
         .progress-bar {
-            width: 80%; /* $32,000 of $40,000 HKD */
+            width: 80%; /* Current Progress Representation */
             height: 100%;
             background: var(--accent);
             box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
@@ -91,27 +91,30 @@
 
         .stats span { color: var(--text); font-weight: 700; }
 
+        /* --- BUTTONS --- */
         .cta-group {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             margin-top: 30px;
+            max-width: 900px;
         }
 
         .btn {
             display: inline-block;
-            padding: 15px 35px;
+            padding: 12px 25px;
             border-radius: 2px;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
             text-align: center;
             cursor: pointer;
             border: none;
+            min-width: 180px;
         }
 
         .btn-primary { background: var(--accent); color: #000; }
@@ -119,18 +122,24 @@
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(46, 204, 113, 0.1); }
 
         /* --- GENERAL SECTIONS --- */
-        .section-padding { padding: 100px 20px; max-width: 1000px; margin: 0 auto; }
-        h2 { font-size: 2.5rem; letter-spacing: -1px; text-align: center; margin-bottom: 20px; }
+        .section-padding { padding: 80px 20px; max-width: 950px; margin: 0 auto; }
+        h2 { font-size: 2.2rem; letter-spacing: -1px; text-align: center; margin-bottom: 40px; }
+        h3 { color: var(--accent); text-transform: uppercase; font-size: 1rem; letter-spacing: 2px; margin-top: 40px; }
         .section-intro { text-align: center; color: var(--text-dim); max-width: 700px; margin: 0 auto 50px auto; }
+        
+        .description-content p { color: var(--text-dim); margin-bottom: 20px; }
+        .description-content ul { padding-left: 20px; color: var(--text-dim); }
+        .description-content li { margin-bottom: 10px; }
+        .description-content b { color: var(--text); }
 
-        /* --- LEARN MORE SECTION --- */
-        .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 50px 0; }
+        /* --- IMAGES & CARDS --- */
+        .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; }
         .img-card { background: var(--card-bg); padding: 15px; border: 1px solid #222; border-radius: 4px; }
         .img-card img { width: 100%; border-radius: 2px; filter: grayscale(20%); }
         .card-label { display: block; margin-top: 15px; font-weight: 700; color: var(--accent); font-size: 0.7rem; text-transform: uppercase; }
 
-        /* --- TIERS SECTION --- */
-        .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        /* --- TIERS --- */
+        .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .tier-card {
             background: var(--card-bg);
             border: 1px solid #222;
@@ -138,23 +147,26 @@
             border-radius: 4px;
             display: flex;
             flex-direction: column;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
-        .tier-card:hover { border-color: var(--accent); }
+        .tier-card:hover { border-color: var(--accent); transform: translateY(-5px); }
         .tier-name { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; font-weight: 700; }
-        .tier-price { font-size: 2rem; margin: 10px 0; font-weight: 700; }
+        .tier-price { font-size: 1.8rem; margin: 10px 0; font-weight: 700; }
         .tier-price span { font-size: 1rem; color: var(--text-dim); }
-        .tier-desc { font-size: 0.9rem; color: var(--text-dim); flex-grow: 1; margin-bottom: 30px; }
+        .tier-desc { color: var(--text-dim); font-size: 0.9rem; flex-grow: 1; margin-bottom: 25px; }
 
-        /* --- STRETCH GOALS SECTION --- */
+        /* --- STRETCH GOALS --- */
         .stretch-container { display: flex; flex-direction: column; gap: 20px; }
-        .stretch-card { background: #0d0d0d; border: 1px solid var(--locked); padding: 30px; border-radius: 4px; opacity: 0.7; }
+        .stretch-card { background: #0d0d0d; border: 1px solid var(--locked); padding: 30px; border-radius: 4px; }
         .stretch-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
         .stretch-amount { background: var(--locked); color: #fff; padding: 5px 15px; font-size: 0.8rem; font-weight: 700; border-radius: 20px; }
 
-        footer { padding: 80px 20px; text-align: center; color: #444; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; border-top: 1px solid #111; }
+        footer { padding: 60px 20px; text-align: center; color: #444; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; border-top: 1px solid #111; }
 
-        @media (max-width: 768px) { .img-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            .img-grid { grid-template-columns: 1fr; } 
+            .cta-group { flex-direction: column; align-items: center; } 
+        }
     </style>
 </head>
 <body>
@@ -163,7 +175,7 @@
     <section class="hero">
         <div class="product-tagline">Almetric Technologies</div>
         <h1>AL Buds 1</h1>
-        <p style="max-width: 500px; color: var(--text-dim); margin-bottom: 30px;">Crowdfunding the AL Buds 1: Clinical-grade biometric monitoring meets professional audio ergonomics.</p>
+        <p style="max-width: 500px; color: var(--text-dim); margin-bottom: 30px;">Clinical-grade biometric monitoring meets professional audio ergonomics.</p>
         
         <!-- Progress Tracker -->
         <div class="campaign-status">
@@ -175,91 +187,132 @@
                 <div class="progress-bar"></div>
             </div>
             <div class="stats" style="margin-top: 5px;">
-                <div style="font-size: 0.65rem;">67% Funded</div>
+                <div style="font-size: 0.65rem;">80% Funded</div>
                 <div style="font-size: 0.65rem;">14 Days Remaining</div>
             </div>
         </div>
 
         <div class="cta-group">
             <a href="#tiers" class="btn btn-primary">Back This Campaign</a>
-            <a href="#learn-more" class="btn btn-outline">Learn More</a>
+            <a href="#product-description" class="btn btn-outline">Product Description</a>
+            <a href="#learn-more" class="btn btn-outline">The Technology</a>
             <a href="#stretch-goals" class="btn btn-outline">Stretch Goals</a>
         </div>
     </section>
 
-    <!-- Learn More Section -->
-    <section id="learn-more" class="section-padding" style="border-top: 1px solid #111;">
+    <!-- Product Description Section -->
+    <section id="product-description" class="section-padding" style="border-top: 1px solid #111;">
+        <h2>Product Description</h2>
+        <div class="description-content">
+            <h3>Brief Description</h3>
+            <p>The AL buds represent a massive leap in wearable tech, packing medical-grade monitoring into a device weighing less than a wristband. In the core of the AL buds is a second generation <b>ALbud™ sensor</b>, a clinical-grade health monitoring sensor condensed to the size of a nickel. By shifting the sensors from the wrist to the ear, the AL buds provide users with a fundamental sensing advantage. Crafted from aluminium and high-quality ABS plastic, it blends as a casual earbud, without sacrificing both features and beauty.</p>
+
+            <h3>What problems does it solve?</h3>
+            <p>This product eliminates the key frustrations of ordinary, run of the mill health tracking devices, including inaccurate data and dead batteries. With the AL buds, the <b>swappable battery system</b> allows for easy, 24/7 tracking by cycling through two rechargeable batteries. As the AL bud rests on your ear, it solves the interference issues caused by wrist movements, providing more accurate health data readings at a much more affordable <b>$2400 HKD</b>.</p>
+
+            <h3>Targeted Audience</h3>
+            <ul>
+                <li><b>Health conscious:</b> Users seeking 24/7, medical-grade tracking for sleep, menstrual cycles and blood flow.</li>
+                <li><b>Style conscious:</b> Users who want high-end health data without the look of a plastic wristband or a bulky smart ring.</li>
+                <li><b>Budget conscious:</b> Users who want premium health features without breaking the bank for a high-end smartwatch.</li>
+            </ul>
+
+            <h3>How does it work?</h3>
+            <p>The AL buds work by ditching the wrist for the ear, where the skin is thinner and blood flow is much easier to read. The ALbud™ sensor taps into the steady pulse near your ear canal, ensuring your data isn't messed up by arm movement. To keep it running 24/7, you simply swap the outer battery cartridge when it’s low. This modular design keeps the internal sensors active at all times, providing a seamless physiological map without ever taking a break.</p>
+        </div>
+    </section>
+
+    <!-- Visuals / Technology Section -->
+    <section id="learn-more" class="section-padding" style="background: #0d0d0d;">
         <h2>The Technology</h2>
-        <p class="section-intro">Almetric Technologies is redefining personal health. By utilizing the ear's unique vascularity, AL Buds 1 provide clinical-grade data that wrist-worn wearables simply cannot reach.</p>
+        <p class="section-intro">Engineered for accuracy. Designed for life.</p>
         
         <div class="img-grid">
             <div class="img-card">
-                <img src="sketch.png" alt="Vision Sketch">
-                <span class="card-label">Design Vision</span>
-                <p style="font-size: 0.85rem; color: var(--text-dim);">The original sketch that kickstarted all of this.</p>
+                <img src="sketch.png" alt="Design Sketch">
+                <span class="card-label">The first sketch</span>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">How it all started- an ambitious idea sketched onto a piece of paper.</p>
             </div>
             <div class="img-card">
-                <img src="prototype.png" alt="Current Prototype">
-                <span class="card-label">Final Prototype</span>
-                <p style="font-size: 0.85rem; color: var(--text-dim);">Our current prototype, closer to perfection than ever.</p>
+                <img src="prototype.png" alt="Prototype">
+                <span class="card-label">The prtotype</span>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">Aluminum and ABS construction with a swappable battery cartridge system.</p>
             </div>
         </div>
-
-        <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-dim);">Our design incorporates a discreet, weighted battery pack positioned comfortably behind the ear, ensuring perfect balance for all-day monitoring and high-fidelity listening.</p>
     </section>
 
     <!-- Tiers Section -->
-    <section id="tiers" class="section-padding" style="background: #0d0d0d;">
+    <section id="tiers" class="section-padding">
         <h2>Backing Tiers</h2>
-        <p class="section-intro">Support the development of the technology of tomorrow.</p>
-
         <div class="tier-grid">
+            <!-- Basic Plan -->
             <div class="tier-card">
                 <div class="tier-name">Basic Plan</div>
                 <div class="tier-price">120 <span>HKD</span></div>
-                <p class="tier-desc">Support the technology of tomorrow. Backers of the Basic Tier will receive 1 keychain as a small thank you from the Almetric Team.</p>
-                <a href="#" class="btn btn-outline">Pledge 120 HKD</a>
+                <div class="tier-desc">
+                    Become a foundational supporter of the Almetric vision. By pledging 120 HKD, you are directly fueling the research and development phase of the ALbud™ sensor. As a token of our sincere gratitude for believing in the technology of tomorrow, backers of this tier will receive an exclusive Almetric branded keychain. It’s a small, stylish way to show the world you were there at the beginning of the wearable revolution.
+                </div>
+                <a href="#" class="btn btn-outline" style="min-width: auto;">Pledge 120 HKD</a>
             </div>
 
-            <div class="tier-card" style="border-color: var(--accent); transform: scale(1.02); background: #1a1a1a;">
+            <!-- Premium Plan -->
+            <div class="tier-card" style="border-color: var(--accent); background: #1a1a1a;">
                 <div class="tier-name">Premium Plan</div>
-                <div class="tier-price">1,600 <span>HKD</span></div>
-                <p class="tier-desc">Support tomorrow's technology today. Receive the AL Buds 1 once polished to perfection as a big thank you from the team.</p>
-                <a href="#" class="btn btn-primary">Pledge 1,600 HKD</a>
+                <div class="tier-price">1600 <span>HKD</span></div>
+                <div class="tier-desc">
+                    Secure your place at the forefront of the health-tech movement. By pledging 1600 HKD, you are pre-ordering the AL buds at a significant "Early Bird" discount from the projected retail price. Once our engineers have polished the hardware and modular battery system to absolute perfection, we will ship a complete AL buds unit directly to you. This tier is designed for those who demand medical-grade accuracy without the bulk of a traditional smartwatch.
+                </div>
+                <a href="#" class="btn btn-primary" style="min-width: auto;">Pledge 1600 HKD</a>
             </div>
 
+            <!-- Luxury Plan -->
             <div class="tier-card">
                 <div class="tier-name">Luxury Plan</div>
-                <div class="tier-price">2,400 <span>HKD</span></div>
-                <p class="tier-desc">The ultimate plan. Receive the final AL Buds 1 with free laser-etching of any name, message, or symbol of your choice.</p>
-                <a href="#" class="btn btn-outline">Pledge 2,400 HKD</a>
+                <div class="tier-price">2400 <span>HKD</span></div>
+                <div class="tier-desc">
+                    The ultimate Almetric experience for the discerning user. By pledging 2400 HKD, you receive the full AL buds system, including the swappable battery cartridges and the second-generation ALbud™ sensor suite. To elevate this package, Luxury Tier backers can choose to personalize their device with a laser-etched name, symbol, or message of their choice—completely free of charge. This is a bespoke piece of health technology crafted from premium aluminum.
+                </div>
+                <a href="#" class="btn btn-outline" style="min-width: auto;">Pledge 2400 HKD</a>
             </div>
         </div>
     </section>
 
     <!-- Stretch Goals Section -->
-    <section id="stretch-goals" class="section-padding">
+    <section id="stretch-goals" class="section-padding" style="background: #0d0d0d;">
         <h2>Stretch Goals</h2>
-        <p class="section-intro">Help us reach these milestones to unlock exclusive features and premium protection.</p>
-
         <div class="stretch-container">
-            <!-- Goal 1 -->
             <div class="stretch-card">
                 <div class="stretch-header">
-                    <h3 style="margin:0; color:#fff;">Multi-Color & Jewel Customization</h3>
+                    <div>
+                        <span style="color: var(--accent); font-size: 0.7rem; text-transform: uppercase; font-weight: 700;">Stretch Goal 1</span>
+                        <h3 style="margin: 5px 0 0 0; color: #fff; text-transform: none; font-size: 1.2rem;">Multi-Color & Jewel Customization!</h3>
+                    </div>
                     <span class="stretch-amount">HKD 50,000</span>
                 </div>
-                <p style="font-size: 0.9rem; color: var(--text-dim);">Unlocks Sierra Blue, Rose Gold, and Royal Amethyst options with matching jewels. Transform your tech into a high-fashion ensemble.</p>
+                <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 15px;">Unlocks Sierra Blue, rose gold, and royal amethyst purple, each installed with matching jewels. Transform your AL Buds from tech to fashion.</p>
             </div>
-            <!-- Goal 2 -->
             <div class="stretch-card">
                 <div class="stretch-header">
-                    <h3 style="margin:0; color:#fff;">Premium Protective Earring Case</h3>
+                    <div>
+                        <span style="color: var(--accent); font-size: 0.7rem; text-transform: uppercase; font-weight: 700;">Stretch Goal 2</span>
+                        <h3 style="margin: 5px 0 0 0; color: #fff; text-transform: none; font-size: 1.2rem;">Premium Protective Earring Case!</h3>
+                    </div>
                     <span class="stretch-amount">HKD 60,000</span>
                 </div>
-                <p style="font-size: 0.9rem; color: var(--text-dim);">A jewelry-box-inspired sanctuary with soft-touch lining and shock resistance to keep your AL Buds pristine on the move.</p>
+                <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 15px;">Introduces a custom-engineered, jewelry-box-inspired sanctuary with soft-touch lining and shock-resistant exterior.</p>
             </div>
         </div>
+    </section>
+
+    <!-- Our Promise Section -->
+    <section class="section-padding" style="text-align: center; border-top: 1px solid #111;">
+        <h2>Our Promise</h2>
+        <p style="color: var(--text-dim); max-width: 750px; margin: 0 auto 30px auto; font-style: italic;">
+            Every pledge brings us one step closer to a world where health monitoring is seamless, constant, and clinically precise. AL buds are designed to be a permanent companion on your wellness journey, resting snugly and providing a physiological map that never skips a beat. 
+        </p>
+        <p style="letter-spacing: 3px; font-weight: 700; color: #fff; text-transform: uppercase; font-size: 0.9rem;">
+            AL buds are with you. <span style="color: var(--accent);">AL buds are forever.</span>
+        </p>
     </section>
 
     <footer>
